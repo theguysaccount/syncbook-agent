@@ -64,4 +64,3 @@ try{
   else if(command==='revise'){if(!values[0]||!values[1]||!Number.isInteger(Number(values[2])))throw new Error('Supply the proposal UUID, plan JSON, and current revision.');console.log(JSON.stringify(await call('/api/proposals/'+encodeURIComponent(values[0]),'PATCH',{body:await input(values[1]),revision:Number(values[2])},true),null,2));}
   else throw new Error('Unknown command. Run help for the supported commands.');
 }catch(error){console.error(error.message);process.exitCode=1;}
-
